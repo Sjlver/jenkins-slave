@@ -31,10 +31,15 @@ ADD jenkins/ssh /home/jenkins/.ssh
 # Git configuration
 ADD jenkins/gitconfig /home/jenkins/.gitconfig
 
+# Allow sudo for the jenkins user
+ADD etc/sudoers.d/jenkins /etc/sudoers.d/jenkins
+
 # Fix owners and permissions
 RUN chown -R jenkins:jenkins /home/jenkins
+RUN chown -R root:root /etc/sudoers.d
 RUN chmod 700 /home/jenkins/.ssh
 RUN chmod 600 /home/jenkins/.ssh/authorized_keys
+RUN chmod 600 /etc/sudoers.d/jenkins
 
 # Expose SSH port
 EXPOSE 22
