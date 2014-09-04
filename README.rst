@@ -15,9 +15,11 @@ Once it runs, connect using SSH::
     $ ssh -p 10022 jenkins@<host>
 
 When you're connected, you will need to set up whatever you build host needs to
-work. This probably includes compilers and other tools. You also need to ensure
-that your host has access to the repo it needs; for this, copy the
-corresponding SSH key to `/home/jenkins/.ssh`.
+work. This probably includes compilers and other tools. Have a look at the
+`scripts` folder for inspiration.
+
+You also need to ensure that your host has access to the repos it needs; for
+this, copy the corresponding SSH key to `/home/jenkins/.ssh`.
 
 In the Jenkins web interface, you can then add a new slave as follows:
 
