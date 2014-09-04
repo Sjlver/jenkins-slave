@@ -3,4 +3,15 @@
 sudo apt-get update
 sudo apt-get distupgrade
 
-sudo apt-get install clang cmake ninja-build binutils-dev gcovr
+# LLVM and Co.
+sudo apt-get install clang cmake ninja-build binutils-dev
+
+# Needed for running tests
+sudo apt-get install gcovr mercurial
+
+# ASAP needs these
+sudo apt-get install ruby ruby-dev
+sudo gem install parallel
+
+# Convenience
+sudo apt-get install vim
