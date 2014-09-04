@@ -13,5 +13,8 @@ sudo apt-get install gcovr mercurial
 sudo apt-get install ruby ruby-dev
 sudo gem install parallel
 
+# Building python requires a few more
+sudo apt-get install zlib1g-dev dpkg-dev
+
 # Convenience
 sudo apt-get install vim
