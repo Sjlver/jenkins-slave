@@ -28,8 +28,9 @@ RUN adduser --disabled-password jenkins
 # Allow SSH login for the jenkins user
 ADD jenkins/ssh /home/jenkins/.ssh
 
-# Git configuration
+# Git/Mercurial configuration
 ADD jenkins/gitconfig /home/jenkins/.gitconfig
+ADD jenkins/hgrc /home/jenkins/.hgrc
 
 # Allow sudo for the jenkins user
 ADD etc/sudoers.d/jenkins /etc/sudoers.d/jenkins
