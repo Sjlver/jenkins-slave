@@ -7,7 +7,7 @@ sudo apt-get dist-upgrade
 sudo apt-get install git clang cmake ninja-build binutils-dev
 
 # Needed for running tests
-sudo apt-get install gcovr mercurial
+sudo apt-get install gcovr mercurial parallel
 
 # ASAP needs these
 sudo apt-get install ruby ruby-dev
