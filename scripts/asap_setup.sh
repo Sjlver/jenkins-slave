@@ -4,7 +4,7 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 
 # LLVM and Co.
-sudo apt-get install git clang cmake ninja-build binutils-dev
+sudo apt-get install git clang cmake ninja-build binutils-dev xutils-dev
 
 # Needed for running tests
 sudo apt-get install gcovr mercurial parallel
