@@ -19,5 +19,9 @@ sudo apt-get install zlib1g-dev dpkg-dev
 # Benchmarking openssl
 xutils-dev apache2-utils
 
+# R and R packages
+sudo apt-get --no-install-recommends install r-base r-recommended r-base-dev
+sudo R -e 'install.packages("ggplot2", repos="http://stat.ethz.ch/CRAN/")'
+
 # Convenience
 sudo apt-get install vim
