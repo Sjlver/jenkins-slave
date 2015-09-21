@@ -29,6 +29,7 @@ RUN adduser --disabled-password jenkins
 ADD jenkins/ssh /home/jenkins/.ssh
 
 # Git/Mercurial configuration
+RUN apt-get install -y --no-install-recommends git mercurial
 ADD jenkins/gitconfig /home/jenkins/.gitconfig
 ADD jenkins/hgrc /home/jenkins/.hgrc
 
