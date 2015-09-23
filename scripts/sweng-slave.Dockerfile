@@ -19,7 +19,7 @@ RUN apt-get install -y qemu-kvm --no-install-recommends
 # Install the Android SDK.
 ENV ANDROID_HOME /home/jenkins/tools/android-sdk
 USER jenkins
-RUN wget -qO- "http://dl.google.com/android/android-sdk_r24.0.2-linux.tgz" | \
+RUN wget -qO- "http://dl.google.com/android/android-sdk_r24.3.4-linux.tgz" | \
     tar -zxv -C /tmp/ && \
     rm -rf $ANDROID_HOME && \
     mkdir -p $( dirname $ANDROID_HOME ) && \
