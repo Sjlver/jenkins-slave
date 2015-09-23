@@ -32,6 +32,12 @@ RUN ( while true; do sleep 1; echo y; done ) | $ANDROID_HOME/tools/android updat
 # TODO: Alternatively, change x86 to x86_64... need more experimentation on an Intel CPU.
 RUN ( while true; do sleep 1; echo y; done ) | $ANDROID_HOME/tools/android update sdk -u -a -t android-23,addon-google_apis-google-23,sys-img-x86-addon-google_apis-google-23 
 
+# NOTE: This fixes a bug that will be addressed in an upcoming release of the emulator.
+# https://android-review.googlesource.com/#/c/159194/
+# File taken from: https://code.google.com/p/android/issues/detail?id=174557#c10
+RUN mv $ANDROID_HOME/tools/lib/pc-bios/bios.bin $ANDROID_HOME/tools/lib/pc-bios/bios.bin.bak
+ADD bios.bin $ANDROID_HOME/tools/lib/pc-bios/bios.bin
+
 # Expose SSH port
 EXPOSE 22
 
