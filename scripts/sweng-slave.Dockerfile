@@ -1,4 +1,5 @@
 # Additional configuration to set a SwEng build host.
+# NOTE: Change kvm gid below to match your own configuration!
 # Build using:
 # $ docker build -t sjlver/sweng-slave -f scripts/sweng-slave.Dockerfile .
 FROM sjlver/jenkins-slave
@@ -13,6 +14,7 @@ RUN adduser jenkins kvm
 
 # Install Android SDK dependencies.
 RUN apt-get install -y --no-install-recommends openjdk-7-jre-headless lib32z1 lib32ncurses5 lib32bz2-1.0 g++-multilib unzip
+RUN apt-get install -y qemu-kvm --no-install-recommends
     
 # Install the Android SDK.
 ENV ANDROID_HOME /home/jenkins/tools/android-sdk
