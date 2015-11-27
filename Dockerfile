@@ -5,7 +5,7 @@
 # $ docker.io ps -a
 # Note the port. Add a Jenkins slave with that hostname and port.
 
-FROM ubuntu:trusty
+FROM ubuntu:wily
 MAINTAINER Jonas Wagner <jonas.wagner@epfl.ch>
 
 # Set the env variables to non-interactive
@@ -16,11 +16,11 @@ ENV DEBIAN_PRIORITY critical
 RUN apt-get update
 
 # Install a basic SSH server
-RUN apt-get install -y openssh-server
-RUN mkdir -p /var/run/sshd
+RUN apt-get install -y openssh-server && \
+    mkdir -p /var/run/sshd
 
-# Install JDK 7
-RUN apt-get install -y --no-install-recommends openjdk-7-jdk
+# Install JDK 8
+RUN apt-get install -y --no-install-recommends openjdk-8-jdk
 
 # Add user jenkins to the image
 RUN adduser --disabled-password jenkins
@@ -34,14 +34,15 @@ ADD jenkins/gitconfig /home/jenkins/.gitconfig
 ADD jenkins/hgrc /home/jenkins/.hgrc
 
 # Allow sudo for the jenkins user
+RUN apt-get install -y --no-install-recommends sudo
 ADD etc/sudoers.d/jenkins /etc/sudoers.d/jenkins
 
 # Fix owners and permissions
-RUN chown -R jenkins:jenkins /home/jenkins
-RUN chown -R root:root /etc/sudoers.d
-RUN chmod 700 /home/jenkins/.ssh
-RUN chmod 600 /home/jenkins/.ssh/authorized_keys
-RUN chmod 600 /etc/sudoers.d/jenkins
+RUN chown -R jenkins:jenkins /home/jenkins && \
+    chown -R root:root /etc/sudoers.d && \
+    chmod 700 /home/jenkins/.ssh && \
+    chmod 600 /home/jenkins/.ssh/authorized_keys && \
+    chmod 600 /etc/sudoers.d/jenkins
 
 # Expose SSH port
 EXPOSE 22
