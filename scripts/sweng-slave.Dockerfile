@@ -33,7 +33,7 @@ RUN ( while true; do sleep 1; echo y; done ) | $ANDROID_HOME/tools/android updat
 # Android sometimes fails to update tools... sigh...
     ( set -e; cd $ANDROID_HOME; if [ -f temp/tools_*-linux.zip ]; then rmdir tools; unzip temp/tools_*-linux.zip; rm temp/*; fi ) && \
     ( while true; do sleep 1; echo y; done ) | $ANDROID_HOME/tools/android update sdk -u -a -t build-tools-23.0.2,build-tools-23.0.1,extra-android-m2repository,extra-google-m2repository && \
-    ( while true; do sleep 1; echo y; done ) | $ANDROID_HOME/tools/android update sdk -u -a -t android-23,addon-google_apis-google-23,sys-img-x86_64-addon-google_apis-google-23 
+    ( while true; do sleep 1; echo y; done ) | $ANDROID_HOME/tools/android update sdk -u -a -t android-23,addon-google_apis-google-23,sys-img-x86_64-addon-google_apis-google-23,android-21,addon-google_apis-google-21,sys-img-x86_64-addon-google_apis-google-21 
 
 # Install Gradle
 ENV GRADLE_HOME /home/jenkins/tools/gradle-2.7
